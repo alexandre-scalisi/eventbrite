@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3 text-center">Salut toi ! <span style="font-size:100px; margin-left: 7%;">&#128540;</span></h1>
+    <br><br><br>
+    <p>C'est un site comme eventbrite pour gerer des évenements, j'espere qu'il te plaira ! <span>&#128514;</span>
+    </p>
+
+  </div>
+
+
+
+</div>
+
+<div class="list-group">
+<h1 class= "ml-4 mb-4">Voici les évenements : </h1>
+  <%@events.each do |e|%>
+  <li class="list-group-item list-group-item-action p-4">
+    <div class="d-flex w-100 justify-content-between">
+      <h2 class="mb-3 ">Title :
+        <%= link_to "#{e.title}", event_path(e.id) %> </h3>
+        <small>created at <%=e.created_at %></small>
+    </div>
+
+
+  </li>
+  <%end%>
+</div>
