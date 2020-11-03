@@ -11,11 +11,10 @@ Attendance.destroy_all
 
 end
 
-10.times do
-  a = Event.create(start_date: Faker::Date.forward(days: 365),duration: (1..100000).to_a.select{|i| i%5==0}.sample, title: Faker::Superhero.name, price: rand(1..1000), administrator: User.all.sample,location: Faker::Games::Zelda.location, description: Faker::Lorem.sentence)
-  puts a.errors.messages
+1.times do
+  Event.create(start_date: Faker::Date.forward(days: 365),duration: (1..100000).to_a.select{|i| i%5==0}.sample, title: Faker::Superhero.name, price: rand(1..1000), administrator: User.all.sample,location: Faker::Games::Zelda.location, description: Faker::Lorem.sentence)
 end
 
-10.times do
+1.times do
   Attendance.create(strip_customer_id: Faker::Name.unique.name, user: User.all.sample, event: Event.all.sample)
 end
