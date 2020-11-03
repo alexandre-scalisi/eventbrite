@@ -1,2 +1,56 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<div class="container-fluid m-4 pb-4 pt-4">
+<h2>New event</h2><br><br>
+
+
+
+  <%= form_for @event do |f| %>
+  <% if @event.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+    <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Start_date %><br>
+    <%=date_field(:event, :start_date)%>
+  </div>
+
+  <div class="field">
+    <br><%= f.label :Title %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <br><%= f.label :Description %><br>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <br><%= f.label :Price %><br>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <br><%= f.label :Location %><br>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+    <br><%= f.label :Duration %><br>
+    <%= f.text_field :duration %>
+  </div>
+
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+  <% end %>
+</div>

@@ -1,4 +1,6 @@
+
 <div class="jumbotron">
+
   <div class="container">
     <h1 class="display-3 text-center">Salut toi ! <span style="font-size:100px; margin-left: 7%;">&#128540;</span></h1>
     <br><br><br>
@@ -25,3 +27,8 @@
   </li>
   <%end%>
 </div>
+
+<% if user_signed_in? %>
+  <%= link_to 'Nouvel évenement', new_event_path , class: "btn btn-primary"%>
+  
+<% end %>
