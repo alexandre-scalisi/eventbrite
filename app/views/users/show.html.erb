@@ -14,7 +14,7 @@
 <div class="container-fluid mt-2">
   <li class="list-group-item list-group-item-action">
     <div class="d-flex w-100 mb-4">
-      <h3 class="mb-1">Events : <%=@user.first_name%> <%=@user.last_name%></h3>
+      <h3 class="mb-1">Events :</h3>
     </div>
     <% if !@events.empty? %>
       <%@events.each do |e|%>
@@ -29,4 +29,6 @@
     </div>
     <%end%>
   </li>
+
+  <%= link_to 'modifier mot de passe / email', edit_user_registration_path %>
 </div>

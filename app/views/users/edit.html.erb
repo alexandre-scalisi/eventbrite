@@ -1,0 +1,46 @@
+<div class="container-fluid m-4 pb-4 pt-4">
+<h2>New user</h2><br><br>
+
+
+
+  <%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+
+  
+
+  <div class="field">
+    <br><%= f.label :Description %><br>
+    <%= f.text_field :description %>
+  </div>
+
+    <div class="field">
+    <br><%= f.label :First_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+
+    <div class="field">
+    <br><%= f.label :Last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  
+
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+  <% end %>
+</div>
+
