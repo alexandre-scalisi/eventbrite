@@ -8,10 +8,8 @@ class User < ApplicationRecord
   
   has_many :attendances
   has_many :attended_events, through: :attendances, source: :event
-  has_many :administered_events, through: :attendances, source: :event
-  validates :first_name,:last_name,presence:true
-  validates :first_name, length: {in: 1..40}
-  validates :last_name, length: {in: 1..40}
+  has_many :administered_events, foreign_key: 'administrator', class_name: 'Event'
+  
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
