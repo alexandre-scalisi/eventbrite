@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
   private 
   def check_right_user
-
+    
     if params[:id].to_i != current_user.id 
     flash[:alert] = "Ou tu vas petit filou?"
     redirect_to "/"  
