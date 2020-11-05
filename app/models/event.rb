@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  has_one_attached :photo
   has_many :attendances
   has_many :attendees, through: :attendances, source: :user
   belongs_to :administrator, class_name: "User"
@@ -10,6 +11,7 @@ class Event < ApplicationRecord
   validate :multiple_of_5?
   validates :description, length: {in: 20..1000}
   validates :price, numericality: {only_integer: true},:inclusion => 0..1000
+
 
   def is_futur?
      

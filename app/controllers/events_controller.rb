@@ -13,11 +13,12 @@ class EventsController < ApplicationController
   
     @event= Event.new(params.require(:event).permit(:title,:description,:start_date,:price, :duration, :location))
     
+    
     @event.administrator = current_user
      
     
     if @event.save
-    
+      @event.photo.attach(params.require(:event).permit(:photo)[:photo])
       flash[:notice] = 'Nouvel event ajouté avec succés'
       redirect_to event_path(@event.id)
     else
@@ -53,6 +54,7 @@ class EventsController < ApplicationController
     end
 
   end
+  
 
   def check_right_user
 

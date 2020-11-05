@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :Start_date %><br>
-    <%=datetime_field(:event, :start_date)%>
+    <%= f.datetime_field :start_date %>
   </div>
 
   <div class="field">
@@ -39,6 +39,11 @@
   <div class="field">
     <br><%= f.label :Location %><br>
     <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+  <br><%= f.label :Ajoute_une_photo_à_ton_évenement%> <br>
+   <%=f.file_field :photo%>
   </div>
 
   <div class="field">
