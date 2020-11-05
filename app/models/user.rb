@@ -13,4 +13,22 @@ class User < ApplicationRecord
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
+
+  def participating?(event)
+    return false if self.attended_events.empty?
+
+    self.attended_events.include?(event) ? true : false
+    
+  end
+
+  def administrator?(event)
+    return false if self.administered_events.empty?
+
+    self.administered_events.include?(event) ? true : false
+    
+  end
+
+  def can_subscribe?(event)
+    (participating?(event) || administrator?(event)) ? false : true
+  end
 end

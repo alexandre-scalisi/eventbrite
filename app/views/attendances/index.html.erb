@@ -1,0 +1,5 @@
+<%@event.attendees.each do |a|%>
+  <p><%=a.email%></p>
+<% end %>
+<%= link_to 'edit', edit_event_path(@event), class: "btn btn-secondary" %>
+<%= link_to 'supprimer', @event, method: :delete, class: "btn btn-danger" %>

@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    puts params.permit(:description)
     @user.update(params.require(:user).permit(:description, :first_name, :last_name))
     
   

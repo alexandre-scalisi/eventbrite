@@ -9,7 +9,7 @@ class Event < ApplicationRecord
   validates :duration, numericality: {only_integer: true, greater_than: 0}
   validate :multiple_of_5?
   validates :description, length: {in: 20..1000}
-  validates :price, numericality: {only_integer: true},:inclusion => 1..1000
+  validates :price, numericality: {only_integer: true},:inclusion => 0..1000
 
   def is_futur?
      
