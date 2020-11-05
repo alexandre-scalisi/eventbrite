@@ -80,7 +80,7 @@ test:
 #
 production:
   <<: *default
-   database: Eventbrite_production
+  database: Eventbrite_development
   username: Eventbrite
   password: <%= ENV['EVENTBRITE_DATABASE_PASSWORD'] %>
   
