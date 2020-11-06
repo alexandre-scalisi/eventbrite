@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   
    
     if @user.valid?
-      @user.photo.attach(io: File.open("app/assets/images/download.jpeg"), filename: 'download.jpeg')
+    
       flash[:notice] = 'User modifié avec succés'
       redirect_to user_path(@user.id)
     else

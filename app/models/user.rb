@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  after_create :welcome_send
+  after_create :welcome_send, :attach_photo
 
   has_one_attached :photo
   has_many :attendances
@@ -30,5 +30,9 @@ class User < ApplicationRecord
 
   def can_subscribe?(event)
     (participating?(event) || administrator?(event)) ? false : true
+  end
+
+  def attach_photo
+    self.photo.attach(io: File.open("public/assets/download-151a9b41ea4e872d175323f05dc4e3a5c48f03c42673cd3b81adcd4076ec8c78.jpg"), filename: 'download-151a9b41ea4e872d175323f05dc4e3a5c48f03c42673cd3b81adcd4076ec8c78.jpg') 
   end
 end

@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  after_create :attach_photo
   has_one_attached :photo
   has_many :attendances
   has_many :attendees, through: :attendances, source: :user
@@ -32,5 +33,8 @@ class Event < ApplicationRecord
     date+= duration*60
   end
 
+  def attach_photo
+    self.photo.attach(io: File.open("public/assets/download-151a9b41ea4e872d175323f05dc4e3a5c48f03c42673cd3b81adcd4076ec8c78.jpg"), filename: 'download-151a9b41ea4e872d175323f05dc4e3a5c48f03c42673cd3b81adcd4076ec8c78.jpg') 
+  end
 
 end
